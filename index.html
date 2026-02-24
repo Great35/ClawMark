@@ -313,6 +313,11 @@
         .grid { display: grid; }
         .hidden { display: none; }
 
+        /* Mobile Menu */
+        .mobile-menu-open {
+            display: flex !important;
+        }
+
         /* ===== FLEXBOX & GRID UTILITIES ===== */
         .flex-row { flex-direction: row; }
         .flex-row-reverse { flex-direction: row-reverse; }
@@ -1526,6 +1531,41 @@
         .z-50 { z-index: 50; }
         .z-auto { z-index: auto; }
 
+        /* ===== BUTTON STYLES (Hide lines/outlines) ===== */
+        button, 
+        .btn,
+        a[class*="btn"],
+        [role="button"],
+        .group.inline-flex.items-center.gap-2,
+        .inline-flex.items-center.gap-2,
+        [class*="rounded-full"] {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        button:focus,
+        button:focus-visible,
+        button:active,
+        .btn:focus,
+        .btn:focus-visible,
+        .btn:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Remove focus ring from all interactive elements */
+        *:focus {
+            outline: none !important;
+        }
+
+        *:focus-visible {
+            outline: none !important;
+        }
+
+        *:active {
+            outline: none !important;
+        }
+
         /* ===== RESPONSIVE UTILITIES ===== */
         @media (min-width: 640px) {
             .sm\:block { display: block; }
@@ -1724,7 +1764,7 @@
             .hover\:shadow-\[0_0_40px_rgba\(220\,38\,38\,0\.35\)\]:hover { box-shadow: 0 0 40px rgba(220, 38, 38, 0.35); }
         }
 
-        /* Focus states */
+        /* Focus states - Override to remove outlines */
         .focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
         .focus\:border-white\/\[0\.12\]:focus { border-color: rgba(255, 255, 255, 0.12); }
         .focus\:border-white\/\[0\.15\]:focus { border-color: rgba(255, 255, 255, 0.15); }
@@ -1780,8 +1820,6 @@
     <script src="_next/static/chunks/32fe2ad5f8d2a65d.js" async=""></script>
     <script src="_next/static/chunks/d368fdaadf01f678.js" async=""></script>
     <script src="_next/static/chunks/1200e207ce352f44.js" async=""></script>
-    <script src="_next/static/chunks/d96012bcfc98706a.js" async=""></script>
-    <script src="_next/static/chunks/73e3194f06db260e.js" async=""></script>
     <script src="_next/static/chunks/4610d1644bf9aab1.js" async=""></script>
     <script src="_next/static/chunks/059888db39400f9a.js" async=""></script>
     <script src="_next/static/chunks/9146e9274abeb1d7.js" async=""></script>
@@ -1792,6 +1830,87 @@
     <link rel="icon" href="ClawMark_icon_transparent.png" />
     <link rel="apple-touch-icon" href="/ClawMark_icon_transparent.png" />
     <script src="_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script>
+    
+    <!-- JavaScript for Burger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create mobile menu element
+            const header = document.querySelector('header');
+            const burgerButton = document.querySelector('.md:hidden');
+            
+            if (burgerButton) {
+                // Create mobile menu
+                const mobileMenu = document.createElement('div');
+                mobileMenu.id = 'mobile-menu';
+                mobileMenu.className = 'fixed top-20 left-0 right-0 bg-[#030108]/95 backdrop-blur-xl border-b border-white/[0.06] p-4 hidden flex-col gap-2 z-[100]';
+                mobileMenu.style.maxHeight = 'calc(100vh - 80px)';
+                mobileMenu.style.overflowY = 'auto';
+                
+                // Add navigation links
+                mobileMenu.innerHTML = `
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-200 font-medium">Trade</a>
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-200 font-medium">Portfolio</a>
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-200 font-medium">Leaderboard</a>
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-200 font-medium flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>Developers
+                    </a>
+                    <div class="border-t border-white/[0.06] my-2 pt-2">
+                        <span class="block px-4 py-2 text-[10px] font-mono text-white/40">CA: 0xe4A3451Ade8CA2C3e1E3d7B9fa6Ecce419168ba3</span>
+                        <a href="https://discord.gg/naYBWncG" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"></path></svg>
+                            <span>Discord</span>
+                        </a>
+                        <a href="https://x.com/index.htmlClawMark" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.08] transition-all">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                `;
+                
+                // Insert after header
+                header.parentNode.insertBefore(mobileMenu, header.nextSibling);
+                
+                // Toggle menu on burger button click
+                burgerButton.addEventListener('click', function() {
+                    const menu = document.getElementById('mobile-menu');
+                    const isHidden = menu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        menu.classList.remove('hidden');
+                        menu.classList.add('mobile-menu-open');
+                        // Change icon to X
+                        burgerButton.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>';
+                    } else {
+                        menu.classList.add('hidden');
+                        menu.classList.remove('mobile-menu-open');
+                        // Change icon back to burger
+                        burgerButton.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                    }
+                });
+                
+                // Close menu when clicking on a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('mobile-menu-open');
+                        burgerButton.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const menu = document.getElementById('mobile-menu');
+                    if (!menu) return;
+                    
+                    if (!menu.contains(event.target) && !burgerButton.contains(event.target) && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                        menu.classList.remove('mobile-menu-open');
+                        burgerButton.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                    }
+                });
+            }
+        });
+    </script>
 </head>
 
 <body class="font-sans antialiased">
@@ -2100,7 +2219,7 @@
                             href="index.html"><span>Launch App</span><svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></a>
                         <a
                             class="inline-flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] text-white/80 hover:text-white font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base transition-all duration-200"
-                            href="/developers"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg><span>Build an Agent</span></a>
+                            href="developers.html"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg><span>Build an Agent</span></a>
                     </div>
                 </div>
             </div>
