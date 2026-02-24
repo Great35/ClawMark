@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href="_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2" as="font" crossorigin="" type="font/woff2" />
     <link rel="preload" href="_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2" as="font" crossorigin="" type="font/woff2" />
-    <link rel="preload" as="image" imageSrcSet="logo.PNG, logo.PNG"
-    />
+    <link rel="preload" as="image" imageSrcSet="logo.PNG, logo.PNG" />
     <link rel="stylesheet" href="_next/static/chunks/c1f2c970ed09bef7.css" data-precedence="next" />
     <link rel="stylesheet" href="_next/static/chunks/1f37b59f7222dcf5.css" data-precedence="next" />
     <link rel="preload" as="script" fetchPriority="low" href="_next/static/chunks/89da7a72c1dc3992.js" />
@@ -45,9 +44,843 @@
     <link rel="icon" href="ClawMark_icon_transparent.png" />
     <link rel="apple-touch-icon" href="/ClawMark_icon_transparent.png" />
     <script src="_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script>
+    
+    <!-- Add critical custom styles directly in the head -->
+    <style>
+        /* Critical custom styles that might be missing from CSS files */
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            animation: 0.7s cubic-bezier(0.16, 1, 0.3, 1) both fade-in-up;
+        }
+        
+        .text-gradient-red {
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #ff6b6b 0%, #dc2626 50%, #b91c1c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        .text-gradient-white {
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(#fff 0%, rgba(255, 255, 255, 0.65) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        @keyframes glow-pulse {
+            0%, to { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .animate-glow-pulse {
+            animation: 3s ease-in-out infinite glow-pulse;
+        }
+        
+        .section-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-glow:before {
+            content: "";
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(rgba(180, 30, 30, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        body {
+            background-color: #030108;
+            color: #fff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        
+        .overflow-x-hidden {
+            overflow-x: hidden;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        .top-0 {
+            top: 0;
+        }
+        
+        .left-0 {
+            left: 0;
+        }
+        
+        .right-0 {
+            right: 0;
+        }
+        
+        .z-50 {
+            z-index: 50;
+        }
+        
+        .backdrop-blur-xl {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        
+        .bg-\[\#030108\]\/60 {
+            background-color: rgba(3, 1, 8, 0.6);
+        }
+        
+        .border-b {
+            border-bottom-width: 1px;
+        }
+        
+        .border-white\/\[0\.06\] {
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .shrink-0 {
+            flex-shrink: 0;
+        }
+        
+        .h-10 {
+            height: 2.5rem;
+        }
+        
+        .w-auto {
+            width: auto;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        
+        .rounded-full {
+            border-radius: 9999px;
+        }
+        
+        .text-sm {
+            font-size: 0.875rem;
+        }
+        
+        .font-medium {
+            font-weight: 500;
+        }
+        
+        .text-white\/70 {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.2s;
+        }
+        
+        .hover\:text-white:hover {
+            color: #fff;
+        }
+        
+        .hover\:bg-white\/\[0\.08\]:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .inset-0 {
+            inset: 0;
+        }
+        
+        .pointer-events-none {
+            pointer-events: none;
+        }
+        
+        .-translate-x-1\/2 {
+            transform: translateX(-50%);
+        }
+        
+        .top-20 {
+            top: 5rem;
+        }
+        
+        .right-0 {
+            right: 0;
+        }
+        
+        .bottom-0 {
+            bottom: 0;
+        }
+        
+        .left-0 {
+            left: 0;
+        }
+        
+        .z-10 {
+            z-index: 10;
+        }
+        
+        .pt-24 {
+            padding-top: 6rem;
+        }
+        
+        .pb-8 {
+            padding-bottom: 2rem;
+        }
+        
+        .max-w-6xl {
+            max-width: 72rem;
+        }
+        
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .inline-flex {
+            display: inline-flex;
+        }
+        
+        .gap-1\.5 {
+            gap: 0.375rem;
+        }
+        
+        .px-5 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .w-2 {
+            width: 0.5rem;
+        }
+        
+        .h-2 {
+            height: 0.5rem;
+        }
+        
+        .bg-\[\#DC2626\] {
+            background-color: #dc2626;
+        }
+        
+        .text-\[11px\] {
+            font-size: 11px;
+        }
+        
+        .text-white\/60 {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .text-\[clamp\(2\.2rem\,7vw\,5\.5rem\)\] {
+            font-size: clamp(2.2rem, 7vw, 5.5rem);
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .leading-\[1\.05\] {
+            line-height: 1.05;
+        }
+        
+        .tracking-tight {
+            letter-spacing: -0.025em;
+        }
+        
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-base {
+            font-size: 1rem;
+        }
+        
+        .text-white\/50 {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+        
+        .max-w-2xl {
+            max-width: 42rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .group {
+            isolation: isolate;
+        }
+        
+        .gap-2\.5 {
+            gap: 0.625rem;
+        }
+        
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .py-3\.5 {
+            padding-top: 0.875rem;
+            padding-bottom: 0.875rem;
+        }
+        
+        .hover\:bg-\[\#EF4444\]:hover {
+            background-color: #ef4444;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .duration-300 {
+            transition-duration: 0.3s;
+        }
+        
+        .hover\:shadow-\[0_0_40px_rgba\(220\,38\,38\,0\.35\)\]:hover {
+            box-shadow: 0 0 40px rgba(220, 38, 38, 0.35);
+        }
+        
+        .hover\:scale-\[1\.02\]:hover {
+            transform: scale(1.02);
+        }
+        
+        .w-4 {
+            width: 1rem;
+        }
+        
+        .h-4 {
+            height: 1rem;
+        }
+        
+        .group-hover\:translate-x-0\.5:is(:where(.group):hover *) {
+            transform: translateX(0.125rem);
+        }
+        
+        .group-hover\:-translate-y-0\.5:is(:where(.group):hover *) {
+            transform: translateY(-0.125rem);
+        }
+        
+        .bg-white\/\[0\.06\] {
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+        
+        .border-white\/\[0\.1\] {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-white\/80 {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hover\:text-white:hover {
+            color: #fff;
+        }
+        
+        .px-3 {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        
+        .pb-6 {
+            padding-bottom: 1.5rem;
+        }
+        
+        .rounded-2xl {
+            border-radius: 1rem;
+        }
+        
+        .shadow-\[0_0_60px_rgba\(220\,38\,38\,0\.06\)\] {
+            box-shadow: 0 0 60px rgba(220, 38, 38, 0.06);
+        }
+        
+        .bg-\[\#08040e\]\/95 {
+            background-color: rgba(8, 4, 14, 0.95);
+        }
+        
+        .backdrop-blur-sm {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .gap-3 {
+            gap: 0.75rem;
+        }
+        
+        .px-5 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        
+        .py-2\.5 {
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+        }
+        
+        .text-xs {
+            font-size: 0.75rem;
+        }
+        
+        .text-green-400 {
+            color: #4ade80;
+        }
+        
+        .font-mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+        
+        .text-\[10px\] {
+            font-size: 10px;
+        }
+        
+        .flex-1 {
+            flex: 1;
+        }
+        
+        .text-\[9px\] {
+            font-size: 9px;
+        }
+        
+        .text-white\/40 {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .grid {
+            display: grid;
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        
+        .min-h-\[200px\] {
+            min-height: 200px;
+        }
+        
+        .p-3 {
+            padding: 0.75rem;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .rounded {
+            border-radius: 0.25rem;
+        }
+        
+        .bg-white\/\[0\.08\] {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .border-white\/\[0\.03\] {
+            border-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        .right-1 {
+            right: 0.25rem;
+        }
+        
+        .-top-2\.5 {
+            top: -0.625rem;
+        }
+        
+        .text-\[7px\] {
+            font-size: 7px;
+        }
+        
+        .text-white\/15 {
+            color: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Additional media queries for responsive design */
+        @media (min-width: 640px) {
+            .sm\:px-10 {
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
+            }
+            .sm\:py-3 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            .sm\:h-\[72px\] {
+                height: 72px;
+            }
+            .sm\:px-12 {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            .sm\:pt-48 {
+                padding-top: 12rem;
+            }
+            .sm\:pb-16 {
+                padding-bottom: 4rem;
+            }
+            .sm\:px-5 {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+            .sm\:py-2 {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            .sm\:mb-8 {
+                margin-bottom: 2rem;
+            }
+            .sm\:text-xs {
+                font-size: 0.75rem;
+            }
+            .sm\:text-lg {
+                font-size: 1.125rem;
+            }
+            .sm\:gap-4 {
+                gap: 1rem;
+            }
+            .sm\:px-8 {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            .sm\:py-3\.5 {
+                padding-top: 0.875rem;
+                padding-bottom: 0.875rem;
+            }
+            .sm\:px-5 {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+            .sm\:py-2\.5 {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+            }
+            .sm\:grid-cols-12 {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+            .sm\:min-h-\[320px\] {
+                min-height: 320px;
+            }
+            .sm\:col-span-8 {
+                grid-column: span 8 / span 8;
+            }
+            .sm\:border-r {
+                border-right-width: 1px;
+            }
+            .sm\:p-4 {
+                padding: 1rem;
+            }
+            .sm\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .sm\:text-2xl {
+                font-size: 1.5rem;
+            }
+            .sm\:text-4xl {
+                font-size: 2.25rem;
+            }
+            .sm\:p-6 {
+                padding: 1.5rem;
+            }
+            .sm\:w-16 {
+                width: 4rem;
+            }
+            .sm\:h-16 {
+                height: 4rem;
+            }
+            .sm\:p-10 {
+                padding: 2.5rem;
+            }
+            .sm\:text-3xl {
+                font-size: 1.875rem;
+            }
+            .sm\:gap-6 {
+                gap: 1.5rem;
+            }
+            .sm\:py-32 {
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+            .sm\:text-5xl {
+                font-size: 3rem;
+            }
+            .sm\:text-base {
+                font-size: 1rem;
+            }
+            .sm\:py-4 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            .sm\:py-16 {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            .sm\:gap-12 {
+                gap: 3rem;
+            }
+            .sm\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex;
+            }
+            .md\:text-5xl {
+                font-size: 3rem;
+            }
+            .md\:text-6xl {
+                font-size: 3.75rem;
+            }
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:inline-flex {
+                display: inline-flex;
+            }
+            .lg\:px-16 {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+            .lg\:px-20 {
+                padding-left: 5rem;
+                padding-right: 5rem;
+            }
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .lg\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        
+        /* Additional utility classes */
+        .border-white\/\[0\.05\] {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .border-white\/\[0\.04\] {
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        
+        .bg-white\/\[0\.04\] {
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+        
+        .bg-white\/\[0\.01\] {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+        
+        .text-white\/20 {
+            color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-white\/30 {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .text-white\/45 {
+            color: rgba(255, 255, 255, 0.45);
+        }
+        
+        .border-\[\#DC2626\]\/20 {
+            border-color: rgba(220, 38, 38, 0.2);
+        }
+        
+        .bg-\[\#DC2626\]\/10 {
+            background-color: rgba(220, 38, 38, 0.1);
+        }
+        
+        .text-\[\#DC2626\] {
+            color: #dc2626;
+        }
+        
+        .hover\:border-\[\#DC2626\]\/20:hover {
+            border-color: rgba(220, 38, 38, 0.2);
+        }
+        
+        .hover\:bg-\[\#DC2626\]\/20:hover {
+            background-color: rgba(220, 38, 38, 0.2);
+        }
+        
+        .text-green-400\/70 {
+            color: rgba(74, 222, 128, 0.7);
+        }
+        
+        .bg-green-500\/10 {
+            background-color: rgba(34, 197, 94, 0.1);
+        }
+        
+        .text-green-400 {
+            color: #4ade80;
+        }
+        
+        .border-white\/\[0\.08\] {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .bg-white\/\[0\.03\] {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        .border-red-500\/25 {
+            border-color: rgba(239, 68, 68, 0.25);
+        }
+        
+        .bg-red-500\/15 {
+            background-color: rgba(239, 68, 68, 0.15);
+        }
+        
+        .text-red-400\/70 {
+            color: rgba(248, 113, 113, 0.7);
+        }
+        
+        .bg-green-500\/80 {
+            background-color: rgba(34, 197, 94, 0.8);
+        }
+        
+        /* Hide scrollbar but allow scrolling */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Very small screens */
+        .xs\:inline {
+            display: inline;
+        }
+        
+        @media (max-width: 480px) {
+            .xs\:inline {
+                display: inline;
+            }
+            .hidden\.xs\:inline {
+                display: inline;
+            }
+        }
+        
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
 </head>
 
-<body class="inter_7b064e0d-module__MOT0tq__variable jetbrains_mono_80bdd358-module__UtJNba__variable font-sans antialiased">
+<body class="font-sans antialiased" style="background-color: #030108; color: #fff; min-height: 100vh; overflow-x: hidden;">
     <div hidden="">
         <!--$-->
         <!--/$-->
@@ -79,7 +912,7 @@
                 <div class="max-w-6xl mx-auto text-center">
                     <div class="animate-fade-in-up inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 mb-5 sm:mb-8">
                         <div class="w-2 h-2 rounded-full bg-[#DC2626] animate-glow-pulse"></div><span class="text-[11px] sm:text-xs text-white/60 font-medium">Perpetuals DEX — Omnichain</span></div>
-                    <h1 class="animate-fade-in-up text-[clamp(2.2rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight mb-4 sm:mb-6"><span class="text-gradient-white">ClawMark</span><br/><span class="text-gradient-red italic">Protocol&amp; .</span></h1>
+                    <h1 class="animate-fade-in-up text-[clamp(2.2rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight mb-4 sm:mb-6"><span class="text-gradient-white">ClawMark</span><br/><span class="text-gradient-red italic">Protocol& .</span></h1>
                     <p class="animate-fade-in-up text-base sm:text-lg text-white/50 leading-relaxed max-w-2xl mx-auto mb-7 sm:mb-10"
                         style="animation-delay:0.08s">ClawMark is the on-chain reputation infrastructure for AI agents. Every transaction, governance vote, and task completion an agent makes is recorded, categorized, and scored giving protocols a queryable trust signal before granting permissions, credit, or governance rights</p>
                     <div class="animate-fade-in-up flex items-center justify-center gap-3 sm:gap-4 flex-wrap"
@@ -146,10 +979,9 @@
                                         </div>
                                         <div class="bg-white/[0.04] rounded px-2.5 py-1.5 text-[9px] text-white/50 font-mono">67,482.00</div>
                                         <div class="bg-white/[0.04] rounded px-2.5 py-1.5 text-[9px] text-white/50 font-mono">0.15 BTC</div>
-                                        <div class="flex gap-1"><span class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">5<!-- -->x</span><span class="flex-1 text-center text-[8px] py-1 rounded bg-red-500/15 text-red-400/70 border border-red-500/25">10<!-- -->x</span>
+                                        <div class="flex gap-1"><span class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">5x</span><span class="flex-1 text-center text-[8px] py-1 rounded bg-red-500/15 text-red-400/70 border border-red-500/25">10x</span>
                                             <span
-                                                class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">20
-                                                <!-- -->x</span><span class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">50<!-- -->x</span></div>
+                                                class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">20x</span><span class="flex-1 text-center text-[8px] py-1 rounded bg-white/[0.04] text-white/30">50x</span></div>
                                         <div class="bg-green-500/80 rounded text-[9px] text-white text-center py-2 font-semibold">Long BTC</div>
                                     </div>
                                 </div>
@@ -181,7 +1013,7 @@
                     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10 sm:mb-20">
                         <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 group hover:border-[#DC2626]/20 transition-all duration-300">
                             <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&amp;&gt;svg]:w-4 [&amp;&gt;svg]:h-4 sm:[&amp;&gt;svg]:w-6 sm:[&amp;&gt;svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg></div>
                                 <span
                                     class="text-[#DC2626] font-mono text-[10px] sm:text-xs font-bold">01</span>
                             </div>
@@ -190,7 +1022,7 @@
                         </div>
                         <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 group hover:border-[#DC2626]/20 transition-all duration-300">
                             <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&amp;&gt;svg]:w-4 [&amp;&gt;svg]:h-4 sm:[&amp;&gt;svg]:w-6 sm:[&amp;&gt;svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"></path></svg></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"></path></svg></div>
                                 <span
                                     class="text-[#DC2626] font-mono text-[10px] sm:text-xs font-bold">02</span>
                             </div>
@@ -199,7 +1031,7 @@
                         </div>
                         <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 group hover:border-[#DC2626]/20 transition-all duration-300">
                             <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&amp;&gt;svg]:w-4 [&amp;&gt;svg]:h-4 sm:[&amp;&gt;svg]:w-6 sm:[&amp;&gt;svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg></div>
                                 <span
                                     class="text-[#DC2626] font-mono text-[10px] sm:text-xs font-bold">03</span>
                             </div>
@@ -208,12 +1040,12 @@
                         </div>
                         <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 group hover:border-[#DC2626]/20 transition-all duration-300">
                             <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&amp;&gt;svg]:w-4 [&amp;&gt;svg]:h-4 sm:[&amp;&gt;svg]:w-6 sm:[&amp;&gt;svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#DC2626]/10 border border-[#DC2626]/20 flex items-center justify-center text-[#DC2626] group-hover:bg-[#DC2626]/20 transition-colors [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                                 <span
                                     class="text-[#DC2626] font-mono text-[10px] sm:text-xs font-bold">04</span>
                             </div>
                             <h4 class="text-white font-semibold text-sm sm:text-base mb-1.5 sm:mb-2">Score query</h4>
-                            <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Before granting access or credit, your protocol queries GET /v1/agents/{id}/score to retrieve the agent’s ClawMark Score (0–100), breakdowns, confidence, and active flags.</p>
+                            <p class="text-white/40 text-xs sm:text-sm leading-relaxed">Before granting access or credit, your protocol queries GET /v1/agents/{id}/score to retrieve the agent's ClawMark Score (0–100), breakdowns, confidence, and active flags.</p>
                         </div>
                     </div>
                     
@@ -402,7 +1234,7 @@
         self.__next_f.push([1, "3:I[339756,[\"_next/static/chunks/d96012bcfc98706a.js\",\"/_next/static/chunks/73e3194f06db260e.js\"],\"default\"]\n4:I[837457,[\"/_next/static/chunks/d96012bcfc98706a.js\",\"/_next/static/chunks/73e3194f06db260e.js\"],\"default\"]\n8:I[168027,[],\"default\"]\n:HL[\"/_next/static/chunks/c1f2c970ed09bef7.css\",\"style\"]\n:HL[\"/_next/static/chunks/1f37b59f7222dcf5.css\",\"style\"]\n:HL[\"/_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])
     </script>
     <script>
-        self.__next_f.push([1, "0:{\"P\":null,\"b\":\"xEiXsCLjVgDQEfs00E1OM\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/c1f2c970ed09bef7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/1f37b59f7222dcf5.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/453d7e63dafa0041.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/92c06198c71ebd30.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/c34615b628a16475.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/352d41e28faa9836.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-4\",{\"src\":\"/_next/static/chunks/57a547181e06a420.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-5\",{\"src\":\"/_next/static/chunks/2029a45694e8c2eb.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-6\",{\"src\":\"/_next/static/chunks/e662a0e07f499a67.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-7\",{\"src\":\"/_next/static/chunks/05bfc830c24c55f0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-8\",{\"src\":\"/_next/static/chunks/bf307eeb027ff067.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-9\",{\"src\":\"/_next/static/chunks/bc1bb4ef0a1c60ad.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-10\",{\"src\":\"/_next/static/chunks/4b9aa8d9d551e0b2.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-11\",{\"src\":\"/_next/static/chunks/da8466cddb97b0f0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-12\",{\"src\":\"/_next/static/chunks/e85cd49a71ff3cc4.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-13\",{\"src\":\"/_next/static/chunks/d3423679309bfd81.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-14\",{\"src\":\"/_next/static/chunks/878d24d5cd069a5b.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-15\",{\"src\":\"/_next/static/chunks/32fe2ad5f8d2a65d.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-16\",{\"src\":\"/_next/static/chunks/d368fdaadf01f678.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-17\",{\"src\":\"/_next/static/chunks/1200e207ce352f44.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"className\":\"dark\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"inter_7b064e0d-module__MOT0tq__variable jetbrains_mono_80bdd358-module__UtJNba__variable font-sans antialiased\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"$L2\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],\"$L5\"]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[\"$L6\",{},null,false,false]},null,false,false],\"$L7\",false]],\"m\":\"$undefined\",\"G\":[\"$8\",[]],\"S\":true}\n"])
+        self.__next_f.push([1, "0:{\"P\":null,\"b\":\"xEiXsCLjVgDQEfs00E1OM\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/c1f2c970ed09bef7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/1f37b59f7222dcf5.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/453d7e63dafa0041.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/92c06198c71ebd30.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/c34615b628a16475.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/352d41e28faa9836.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-4\",{\"src\":\"/_next/static/chunks/57a547181e06a420.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-5\",{\"src\":\"/_next/static/chunks/2029a45694e8c2eb.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-6\",{\"src\":\"/_next/static/chunks/e662a0e07f499a67.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-7\",{\"src\":\"/_next/static/chunks/05bfc830c24c55f0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-8\",{\"src\":\"/_next/static/chunks/bf307eeb027ff067.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-9\",{\"src\":\"/_next/static/chunks/bc1bb4ef0a1c60ad.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-10\",{\"src\":\"/_next/static/chunks/4b9aa8d9d551e0b2.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-11\",{\"src\":\"/_next/static/chunks/da8466cddb97b0f0.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-12\",{\"src\":\"/_next/static/chunks/e85cd49a71ff3cc4.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-13\",{\"src\":\"/_next/static/chunks/d3423679309bfd81.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-14\",{\"src\":\"/_next/static/chunks/878d24d5cd069a5b.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-15\",{\"src\":\"/_next/static/chunks/32fe2ad5f8d2a65d.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-16\",{\"src\":\"/_next/static/chunks/d368fdaadf01f678.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-17\",{\"src\":\"/_next/static/chunks/1200e207ce352f44.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"className\":\"dark\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"font-sans antialiased\",\"suppressHydrationWarning\":true,\"style\":{\"backgroundColor\":\"#030108\",\"color\":\"#fff\",\"minHeight\":\"100vh\",\"overflowX\":\"hidden\"},\"children\":[\"$\",\"$L2\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],\"$L5\"]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[\"$L6\",{},null,false,false]},null,false,false],\"$L7\",false]],\"m\":\"$undefined\",\"G\":[\"$8\",[]],\"S\":true}\n"])
     </script>
     <script>
         self.__next_f.push([1, "9:I[845678,[\"_next/static/chunks/453d7e63dafa0041.js\",\"/_next/static/chunks/92c06198c71ebd30.js\",\"/_next/static/chunks/c34615b628a16475.js\",\"/_next/static/chunks/352d41e28faa9836.js\",\"/_next/static/chunks/57a547181e06a420.js\",\"/_next/static/chunks/2029a45694e8c2eb.js\",\"/_next/static/chunks/e662a0e07f499a67.js\",\"/_next/static/chunks/05bfc830c24c55f0.js\",\"/_next/static/chunks/bf307eeb027ff067.js\",\"/_next/static/chunks/bc1bb4ef0a1c60ad.js\",\"/_next/static/chunks/4b9aa8d9d551e0b2.js\",\"/_next/static/chunks/da8466cddb97b0f0.js\",\"/_next/static/chunks/e85cd49a71ff3cc4.js\",\"/_next/static/chunks/d3423679309bfd81.js\",\"/_next/static/chunks/878d24d5cd069a5b.js\",\"/_next/static/chunks/32fe2ad5f8d2a65d.js\",\"/_next/static/chunks/d368fdaadf01f678.js\",\"/_next/static/chunks/1200e207ce352f44.js\",\"/_next/static/chunks/4610d1644bf9aab1.js\",\"/_next/static/chunks/059888db39400f9a.js\",\"/_next/static/chunks/9146e9274abeb1d7.js\"],\"default\"]\n"])
