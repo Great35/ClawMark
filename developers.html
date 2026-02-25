@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href="_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2" as="font" crossorigin="" type="font/woff2" />
     <link rel="preload" href="_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2" as="font" crossorigin="" type="font/woff2" />
-    <link rel="preload" as="image" imageSrcSet="/hyperclaw_icon_transparent.png 1x, /hyperclaw_icon_transparent.png 2x" />
+    <link rel="preload" as="image" imageSrcSet="logo.PNG 1x,logo.PNG 2x" />
     
     <!-- Link to existing CSS files (without query parameters) -->
     <link rel="stylesheet" href="_next/static/chunks/c1f2c970ed09bef7.css" data-precedence="next" />
@@ -1787,11 +1787,48 @@
     <script src="_next/static/chunks/9146e9274abeb1d7.js" async=""></script>
     
     <meta name="next-size-adjust" content="" />
-    <title>HyperClaw | Perpetual DEX</title>
+    <title>ClawMark</title>
     <meta name="description" content="Trade crypto perpetuals with up to 100x leverage. Built for agents and humans." />
-    <link rel="icon" href="/hyperclaw_icon_transparent.png" />
-    <link rel="apple-touch-icon" href="/hyperclaw_icon_transparent.png" />
+    <link rel="icon" href="logo.PNG" />
+    <link rel="apple-touch-icon" href="logo.PNG" />
     <script src="_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script>
+    
+    <script>
+        // JavaScript for API button to change the log
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find all buttons in the tab navigation
+            const tabButtons = document.querySelectorAll('.flex.items-center.gap-1 button');
+            
+            // Find the log display element (the pre/code block with the score output)
+            const logElement = document.querySelector('pre code');
+            
+            if (tabButtons.length > 0 && logElement) {
+                // Add click event to the "API Reference" button (second button)
+                tabButtons[1].addEventListener('click', function() {
+                    // Change the log content to "lorem"
+                    logElement.textContent = '# npm
+npm install @clawmark/sdk
+# yarn
+yarn add @clawmark/sdk
+# pip (Python)
+pip install clawmark';
+                });
+                
+                // Add click event to the "ClawHub Skill" button (third button)
+                if (tabButtons.length > 2) {
+                    tabButtons[2].addEventListener('click', function() {
+                        // Change the log content to "lorem" as well
+                        logElement.textContent = '# npm
+npm install @clawmark/sdk
+# yarn
+yarn add @clawmark/sdk
+# pip (Python)
+pip install clawmark';
+                    });
+                }
+            }
+        });
+    </script>
 </head>
 
 <body class="font-sans antialiased">
@@ -1802,10 +1839,10 @@
     <div class="min-h-screen flex flex-col">
         <header class="shrink-0 bg-[#030108] border-b border-white/[0.06]">
             <div class="flex items-center justify-between px-3 sm:px-4 py-1.5">
-                <div class="flex items-center gap-3 sm:gap-4"><a class="shrink-0 flex items-center gap-2" href="/"><img alt="HyperClaw" width="24" height="24" decoding="async" data-nimg="1" class="h-[24px] w-[24px]" style="color:transparent" srcSet="/hyperclaw_icon_transparent.png 1x, /hyperclaw_icon_transparent.png 2x" src="/hyperclaw_icon_transparent.png"/><span class="text-white font-bold text-sm tracking-wide hidden sm:inline">HYPER<span class="text-[#DC2626]">CLAW</span></span></a>
+                <div class="flex items-center gap-3 sm:gap-4"><a class="shrink-0 flex items-center gap-2" href="/"><img alt="ClawMark" width="24" height="24" decoding="async" data-nimg="1" class="h-[24px] w-[24px]" style="color:transparent" srcSet="logo.PNG 1x, /logo.PNG 2x" src="/logo.PNG"/><span class="text-white font-bold text-sm tracking-wide hidden sm:inline">CLAW<span class="text-[#DC2626]">MARK</span></span></a>
                     <nav
-                        class="hidden md:flex items-center gap-1"><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70" href="/trade">Trade</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70"
-                            href="/portfolio">Portfolio</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70" href="/leaderboard">Leaderboard</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white border-b-2 border-[#DC2626]"
+                        class="hidden md:flex items-center gap-1"><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70" href="developers.html">Trade</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70"
+                            href="developers.html">Portfolio</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white/40 hover:text-white/70" href="developers.html">Leaderboard</a><a class="px-3 py-1.5 text-xs font-medium transition-all duration-200 text-white border-b-2 border-[#DC2626]"
                             href="developers.html">Developers</a></nav>
                 </div>
                 <div class="flex items-center gap-2 sm:gap-3">
@@ -1822,7 +1859,7 @@
                         class="text-xs text-[#DC2626] font-medium">Developer Portal</span>
                 </div>
                 <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Build with ClawMark</h1>
-                <p class="text-white/45 text-lg max-w-2xl leading-relaxed">Power perpetual markets inside your OpenClaw agent through the MarkHub module, or connect directly to Orderly Network’s REST API. All executions are processed via ClawMark’s brokerage layer.</p>
+                <p class="text-white/45 text-lg max-w-2xl leading-relaxed">Power perpetual markets inside your ClawMark agent through the MarkHub module, or connect directly to Orderly Network’s REST API. All executions are processed via ClawMark’s brokerage layer.</p>
             </div>
             <div class="flex items-center gap-1 bg-white/[0.03] border border-white/[0.06] rounded-xl p-1 mb-6 sm:mb-8 w-full sm:w-fit overflow-x-auto scrollbar-hide"><button class="px-5 py-2 rounded-lg text-sm font-medium transition-all bg-white/[0.08] text-white">Quick Start</button><button class="px-5 py-2 rounded-lg text-sm font-medium transition-all text-white/40 hover:text-white/60 hover:bg-white/[0.03]">API Reference</button>
                 <button
@@ -1957,7 +1994,7 @@ success,
         self.__next_f.push([1, "13:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])
     </script>
     <script>
-        self.__next_f.push([1, "16:I[27201,[\"/_next/static/chunks/d96012bcfc98706a.js\",\"/_next/static/chunks/73e3194f06db260e.js\"],\"IconMark\"]\n11:null\n15:[[\"$\",\"title\",\"0\",{\"children\":\"HyperClaw | Perpetual DEX\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Trade crypto perpetuals with up to 100x leverage. Built for agents and humans.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/hyperclaw_icon_transparent.png\"}],[\"$\",\"link\",\"3\",{\"rel\":\"apple-touch-icon\",\"href\":\"/hyperclaw_icon_transparent.png\"}],[\"$\",\"$L16\",\"4\",{}]]\n"])
+        self.__next_f.push([1, "16:I[27201,[\"/_next/static/chunks/d96012bcfc98706a.js\",\"/_next/static/chunks/73e3194f06db260e.js\"],\"IconMark\"]\n11:null\n15:[[\"$\",\"title\",\"0\",{\"children\":\"ClawMark | Perpetual DEX\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Trade crypto perpetuals with up to 100x leverage. Built for agents and humans.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/logo.PNG\"}],[\"$\",\"link\",\"3\",{\"rel\":\"apple-touch-icon\",\"href\":\"/logo.PNG\"}],[\"$\",\"$L16\",\"4\",{}]]\n"])
     </script>
 </body>
 
